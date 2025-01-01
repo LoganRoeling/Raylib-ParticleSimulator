@@ -30,11 +30,12 @@ std::vector<Particle> ParticleSystem::getRandomParticles(int numParticles) {
         Vec2 velocity = Vec2(distV(gen), distV(gen));
         Vec2 acceleration = Vec2(0, this->gravity);
         float radius = 10.0f;
-        float dampCoeff = 0.85f;
+        float dampCoeff = 0.75f;
+        float fricCoeff = 0.995f;
         // Color color = {255, 0, 255, 255};  // magenta
         Color color = {distC(gen), distC(gen), distC(gen), 255};
         Particle particle = Particle(position, velocity, acceleration, radius,
-                                     dampCoeff, color);
+                                     dampCoeff, fricCoeff, color);
         particles.push_back(particle);
     }
     return particles;

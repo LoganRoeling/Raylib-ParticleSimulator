@@ -11,13 +11,14 @@ class Particle {
    private:
    public:
     Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float radius,
-             float dampCoeff, Color color);
+             float dampCoeff, float fricCoeff, Color color);
     Vec2 position;
     Vec2 velocity;
     Vec2 acceleration;
     float radius;
     float dampCoeff;  // 1.0 = Perfectly Elastic, < 1.0 = Lost Energy, > 1.0 =
                       // Gained Energy
+    float fricCoeff;
     Color color;
     void step(float dt);
     void bounceLeft(int threshold);

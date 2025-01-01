@@ -4,20 +4,24 @@
 
 void Particle::bounceLeft(int threshold) {
     this->velocity.x *= -1.0f * this->dampCoeff;
+    this->velocity.y *= this->fricCoeff;
     this->position.x = threshold + this->radius;
 }
 
 void Particle::bounceRight(int threshold) {
     this->velocity.x *= -1.0f * this->dampCoeff;
+    this->velocity.y *= this->fricCoeff;
     this->position.x = threshold - this->radius;
 }
 
 void Particle::bounceUp(int threshold) {
+    this->velocity.x *= this->fricCoeff;
     this->velocity.y *= -1.0f * this->dampCoeff;
     this->position.y = threshold + this->radius;
 }
 
 void Particle::bounceDown(int threshold) {
+    this->velocity.x *= this->fricCoeff;
     this->velocity.y *= -1.0f * this->dampCoeff;
     this->position.y = threshold - this->radius;
 }
@@ -25,12 +29,14 @@ void Particle::bounceDown(int threshold) {
 // PUBLIC METHODS
 
 Particle::Particle(Vec2 position, Vec2 velocity, Vec2 acceleration,
-                   float radius, float dampCoeff, Color color) {
+                   float radius, float dampCoeff, float fricCoeff,
+                   Color color) {
     this->position = position;
     this->velocity = velocity;
     this->acceleration = acceleration;
     this->radius = radius;
     this->dampCoeff = dampCoeff;
+    this->fricCoeff = fricCoeff;
     this->color = color;
 }
 

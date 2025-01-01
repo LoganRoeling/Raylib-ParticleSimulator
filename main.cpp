@@ -10,7 +10,7 @@ int main() {
     const int FPS_RATE = 240;
 
     // Initialize Particle System
-    int numParticles = 250;
+    int numParticles = 100;
     float gravity = 2500;
     int leftThreshold = 0;
     int rightThreshold = WINDOW_WIDTH;
